@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Renan Imóveis</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Playfair+Display+SC:ital@1&display=swap" rel="stylesheet">  
+  </head>
+
+  <body class="bg-dark" style="background-image: url('../img/mainhouse.jpg'); background-size: cover">
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #1b262c">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Renan Imóveis</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Busca</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Anuncie se imóvel</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div style="padding-top: 100px; width: 30%; padding-left: 10%">
+    <h1 class="text-white">Cadastre seu imóvel</h1>
+    <br>
+      <form action="../php/action.php" method="POST">
+        <div class="form-group">
+          <label for="estado" class="text-white">Estado</label>
+          <input type="text" class="form-control" id="estado", name="estado">
+        </div>
+        <div class="form-group">
+          <label for="cidade" class="text-white">Cidade</label>
+          <input type="text", class="form-control", id="cidade", name="cidade">
+        </div>
+        <div class="form-group">
+          <label for="endereco" class="text-white">Endereço</label>
+          <input type="text", class="form-control", id="endereco", name="endereco">
+        </div>
+        <div class="form-group">
+          <label for="valor" class="text-white">Valor</label>
+          <input type="text", class="form-control", id="valor", name="valor">
+        </div>
+        <div class="form-group">
+          <label for="valor" class="text-white">Área</label>
+          <input type="text", class="form-control", id="area", name="area">
+        </div>
+        <div class="form-group">
+          <label for="numquartos" class="text-white">Número de quartos</label>
+          <input type="text", class="form-control", id="numquartos", name="numquartos">
+        </div>
+        <div class="form-group">
+          <label for="numbanheiros" class="text-white">Número de banheiros</label>
+          <input type="text", class="form-control", id="numbanheiros", name="numbanheiros">
+        </div>
+        <div class="form-group">
+          <label for="valor" class="text-white">Você quer vender ou alugar seu imóvel?</label>
+          <input type="text", class="form-control", id="vendaluguel", name="vendaluguel">
+        </div>
+        <div class="form-group">
+          <label for="valor" class="text-white">Garagem</label>
+          <input type="text", class="form-control", id="garagem", name="garagem">
+        </div>
+        <div class="form-group">
+          <label for="descricao" class="text-white">Fale um pouco sobre o imóvel</label>
+          <input type="text", class="form-control", id="descricao" name="descricao">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+    </div>
+
+  </body>
+</html>
+

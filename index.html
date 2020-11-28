@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Renan Imóveis</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Playfair+Display+SC:ital@1&display=swap" rel="stylesheet">  
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #1b262c">
+  <div class="container">
+    <a class="navbar-brand" href="#">Renan Imóveis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="html/search.html">Busca</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sobre</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="html/cadastro.html">Anuncie seu imóvel</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="container h-50">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-normal" style="color: white;">Desde 1956</h1>
+        <p class="lead font-weight-light" style="color: white;">Trazendo conforto para a sua família</p>
+      </div>
+    </div>
+    <div class="active-pink-3 mb-4">
+      <form action="html/search.php" method="POST">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="busca" id="busca">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<div class="card-deck text-white" style="padding-top:30px; padding-left:17px; width:100%;">
+  <div class="card" style="background-color: #160f30">
+    <img class="card-img-top" src="img/cards/card1.jpg" alt="Card image cap" width="200" height="256">
+    <div class="card-body">
+      <h5 class="card-title">R$592.700</h5>
+      <p class="card-text">112 Rua Papaquara, Florianópolis, SC</p>
+      <p class="card-text"><small class="text-muted">4 quartos | 3 banheiros</small></p>
+    </div>
+  </div>
+  <div class="card" style="background-color: #160f30">
+    <img class="card-img-top" src="img/cards/card2.jpg" alt="Card image cap" width="200" height="256">
+    <div class="card-body">
+      <h5 class="card-title">R$712.000</h5>
+      <p class="card-text">487 Rua Inglesa, Florianópolis, SC</p>
+      <p class="card-text"><small class="text-muted">3 quartos | 2 banheiros</small></p>
+    </div>
+  </div>
+  <div class="card" style="background-color: #160f30">
+    <a href="html/house.html"><img class="card-img-top" src="img/cards/card3.jpg" alt="Card image cap" width="200" height="256"></a>
+    <div class="card-body" href="html/house.html">
+      <h5 class="card-title">R$900.000</h5>
+      <p class="card-text">238 Av. Madre Maria Villac, FLorianópolis, SC</p>
+      <p class="card-text"><small class="text-muted">4 quartos | 2 banheiros</small></p>
+    </div>
+  </div>
+</div>
+
+
+
+  </body>
+
+</html>
