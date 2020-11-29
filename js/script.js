@@ -1,6 +1,6 @@
 var geocoder;
 var map;
-var address = "brazil";
+var address = "-27.430345 -48.4610482";
 
 
 function initMap() {
