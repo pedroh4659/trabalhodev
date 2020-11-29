@@ -68,6 +68,7 @@ $conn->close();
    
     <div class="card border-dark text-white" style="width: 25%; float: left; height: 100%;">
       <div class="card-body bg-dark">
+        <form action="../php/search.php" method="GET"></form>
         <p> Endereço: <?php echo $endereco ?></p>
       </div>
     </div>

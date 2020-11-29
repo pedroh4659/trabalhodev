@@ -1,1 +1,2 @@
-todo
+insert into casa (endereco, estado, cidade, preco, area, numbanheiros, numquartos, garagem, vendaluguel, descricao)
+VALUES('Rua Papaquara', 'pr', 'florianopolis', 645908764.99, 12234, 1, 2, 1, 1, 'casa muito legal');

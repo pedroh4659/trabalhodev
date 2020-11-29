@@ -26,6 +26,13 @@ $descricao = $_POST['descricao'];
 
 $inserir_casa = "insert into casa (endereco, estado, cidade, preco, area, numbanheiros, numquartos, garagem, vendaluguel, descricao) VALUES('$endereco', '$estado', '$cidade', $valor, $area, $numbanheiros, $numquartos, $garagem, $vendaluguel, '$descricao')";
 
+// Inserir imagem
+//$target_dir = "img/";
+//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//$uploadOk = 1;
+//$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+
 if ($conn->query($inserir_casa) === TRUE) {
   echo "New record created successfully";
 } else {

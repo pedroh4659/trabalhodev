@@ -43,7 +43,7 @@
     <div style="padding-top: 100px; width: 30%; padding-left: 10%">
     <h1 class="text-white">Cadastre seu imóvel</h1>
     <br>
-      <form action="../php/action.php" method="POST">
+      <form action="../php/inserir.php" method="POST">
         <div class="form-group">
           <label for="estado" class="text-white">Estado</label>
           <input type="text" class="form-control" id="estado", name="estado">
@@ -84,6 +84,11 @@
           <label for="descricao" class="text-white">Fale um pouco sobre o imóvel</label>
           <input type="text", class="form-control", id="descricao" name="descricao">
         </div>
+        <!--        
+        <div class="form-group">
+          <label for="descricao" class="text-white">Insira algumas imagens!</label>
+          <input type="file", id="fileToUpload" name="fileToUpload">
+        </div> -->
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
     </div>
