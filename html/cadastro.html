@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Renan Imóveis</title>
-    <link rel="icon" href="../img/logo.png">
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -17,18 +16,24 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color: #1b262c">
       <div class="container">
-        <a class="navbar-brand" href="../index.html">Renan Imóveis</a>
+        <a class="navbar-brand" href="index.html">Renan Imóveis</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="../index.html">Home
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="cadastro.html">Anuncie seu imóvel</a>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Busca</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastro.html">Anuncie se imóvel</a>
             </li>
           </ul>
         </div>
@@ -38,68 +43,85 @@
     <div style="padding-top: 100px; width: 70%; padding-left: 10%">
     <h1 class="text-white">Cadastre seu imóvel</h1>
     <br>
-      <form action="../php/inserir.php" method="POST">
-        <div class="form-group">
-          <label for="estado" class="text-white">Estado</label>
-          <input type="text" class="form-control" id="estado", name="estado">
-        </div>
-        <div class="form-group">
-          <label for="cidade" class="text-white">Cidade</label>
-          <input type="text", class="form-control", id="cidade", name="cidade">
-        </div>
-        <div class="form-group">
-          <label for="endereco" class="text-white">Endereço</label>
-          <input type="text", class="form-control", name="endereco">
-        </div>
-        <div class="form-group">
-          <label for="valor" class="text-white">Valor</label>
-          <input type="text", class="form-control", id="valor", name="valor">
-        </div>
-        <div class="form-group">
-          <label for="valor" class="text-white">Área</label>
-          <input type="text", class="form-control", id="area", name="area">
-        </div>
-        <div class="form-group">
-          <label for="numquartos" class="text-white">Número de quartos</label>
-          <input type="text", class="form-control", id="numquartos", name="numquartos">
-        </div>
-        <div class="form-group">
-          <label for="numbanheiros" class="text-white">Número de banheiros</label>
-          <input type="text", class="form-control", id="numbanheiros", name="numbanheiros">
-        </div>
-        <div class="form-group">
-          <label for="valor" class="text-white">Você quer vender ou alugar seu imóvel?</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label text-white" for="exampleRadios1">
-              Alugar
-            </label>
+      <form action="../php/action.php" method="POST" class="text-white">
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="estado">Estado</label>
+            <select name="estado" class="form-control">
+              <option selected>Selecione um estado</option>
+              <option value="PR">PR</option>
+              <option value="RS">RS</option>
+              <option value="SC">SC</option>
+            </select>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label text-white" for="exampleRadios2">
-              Vender
-            </label>
+          <div class="form-group col-md-4">
+            <label for="cidade">Cidade</label>
+            <input type="text" class="form-control" name="cidade" placeholder="Cidade">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" name="endereco" placeholder="Ex: Rua das Goiabas">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" name="numero" placeholder="Ex: 1234">
+          </div>          
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="numquartos" class="text-white">Número de quartos</label>
+            <input type="text" class="form-control" name="numquartos" placeholder="Ex: 2">
+          </div>
+          <div class="form-group">
+            <label for="numbanheiros" class="text-white">Número de banheiros</label>
+            <input type="text" class="form-control" name="numbanheiros" placeholder="Ex: 1">
+          </div>          
+          <div class="form-group" style="padding-left: 2%;">
+            <label for="garagem" class="text-white">O imóvel possui garagem?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="garagem" value="1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Sim
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="garagem" value="2">
+              <label class="form-check-label" for="exampleRadios2">
+                Não
+              </label>
+            </div>
+          </div>
+        </div>    
+        <div class="form-row">
+          <div class="form-group" >
+            <label for="vendaluguel"> Venda ou Aluguel?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="vendaluguel" value="1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                Aluguel
+              </label>
+            </div>
+            <div class="form-check col-md-2">
+              <input class="form-check-input" type="radio" name="vendaluguel"value="2">
+              <label class="form-check-label" for="exampleRadios2">
+                Venda
+              </label>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="valor" class="text-white">Valor</label>
+            <input type="text" class="form-control" name="valor" placeholder="Valor">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputArea">Área do imóvel</label>
+            <input type="text" class="form-control" name="area" placeholder="Área">
           </div>
         </div>
-        <div class="form-group">
-          <label for="valor" class="text-white">O imóvel possui garagem?</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label text-white" for="exampleRadios1">
-              Sim
-            </label>
+        <div class="form-row">
+          <div class="form-group" style="width: 100%;">
+            <label for="descricao">Fale um pouco sobre o seu imóvel</label>
+            <input type="text" name="descricao" class="form-control">
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label text-white" for="exampleRadios2">
-              Não
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="descricao" class="text-white">Fale um pouco sobre o imóvel</label>
-          <input type="text", class="form-control", id="descricao" name="descricao">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
