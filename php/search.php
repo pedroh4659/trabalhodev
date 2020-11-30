@@ -19,6 +19,7 @@ if ($retorno->num_rows > 0) {
         $cidade = $row["cidade"];
         $area = $row["area"];
         $preco = $row["preco"];
+        $numero = $row["numero"];
         $numquartos = $row["numquartos"];
         $numbanheiros = $row["numbanheiros"];
         $descricao = $row["descricao"];
@@ -189,9 +190,16 @@ function initMap() {
    
     <div class="card border-dark text-white" style="width: 25%; float: left; padding-top: 35px">
       <div class="card-body bg-dark">
-        <h1>Casa encontrada!</h1>
-        <p style="display:inline">R$<?php echo $preco ?></p> <p style="float: right"><?php echo $numquartos?> qts | <?php echo $numbanheiros?> ba | <?php echo $area?> m²</p>
-        <p><?php echo $endereco ?>, <?php echo $cidade ?>, <?php echo $estado ?></p>
+        <h3>Casa encontrada!</h3>
+        <hr>
+        <h6><?php echo $cidade ?>, <?php echo $estado ?>, <?php echo $endereco ?> <?php echo $numero ?></h6>
+        <br>
+        <h5>Valor: R$<?php echo $preco ?></h5> 
+        <br>
+        <p><?php echo $numquartos?> Quartos e <?php echo $numbanheiros?> Banheiros</p>
+        <br>
+        <p> <?php echo $area?> m²</p>
+        <p><?php echo $descricao ?></p>
       </div>
     </div>
   </body>
