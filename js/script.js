@@ -1,7 +1,8 @@
 var geocoder;
 var map;
-var address = "brazil";
-
+//var address = document.getElementById("endereco");
+var address = document.getElementById("endereco").value;
+alert(address)
 
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {

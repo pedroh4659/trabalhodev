@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 $busca = $_POST['busca'];
 
-$query_search = "SELECT * FROM casa where id=$busca";
+$query_search = "SELECT * FROM casa WHERE cidade like '%$busca%' OR estado like '%$busca%' OR endereco like '%$busca%'";
 $retorno = $conn->query($query_search);
 
 if ($retorno->num_rows > 0) {
@@ -32,9 +32,11 @@ if ($retorno->num_rows > 0) {
         } else {
             $vendaluguel = "Venda";
         }
+        $mapa_pesquisa = $row["endereco"] . " " . $row["cidade"] . " " . $row["estado"];
     }
 } else {
-    echo "Nenhum resultado encontrado.";
+    header("Location: ../index.html", true, 302);
+    echo "Página não encontrada.";
 }
 $conn->close();
 ?>
@@ -44,6 +46,7 @@ $conn->close();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Renan Imóveis</title>
+    <link rel="icon" href="../img/logo.png">
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -65,13 +68,6 @@ $conn->close();
             <li class="nav-item">
                 <a class="nav-link" href="../index.html">Home</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Busca
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sobre</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="cadastro.html">Anuncie seu imóvel</a>
             </li>
@@ -79,7 +75,116 @@ $conn->close();
       </div>
     </nav>
     <div id="map"></div>
-    <script src="../js/script.js"></script>
+    <script>
+      var geocoder;
+var map;
+var address = '<?php echo $mapa_pesquisa; ?>';
+alert(address)
+
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -27.4317603, lng: -48.4610482 },
+    zoom: 12,
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }]
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }]
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }]
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }]
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }]
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }]
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }]
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }]
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }]
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }]
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }]
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }]
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }]
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }]
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }]
+      }
+    ]
+  });
+  geocoder = new google.maps.Geocoder();
+  codeAddress(geocoder, map);
+
+}
+
+      function codeAddress(geocoder, map) {
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb5exhyBG7redyEvDWZH4Zow2u6jTXDN4&callback=initMap"></script>
    
     <div class="card border-dark text-white" style="width: 25%; float: left; padding-top: 35px">
